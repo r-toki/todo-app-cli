@@ -1,0 +1,77 @@
+{
+  "db": "PostgreSQL",
+  "12158852ae70ff7f8453b65246aff7846b34ebfbb2a6a19c0549d704134238a3": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      }
+    },
+    "query": "\nDELETE FROM todos\nWHERE id = $1        \n        "
+  },
+  "77e08232feef00e60de3866419a8ab9f29213b1e9b2b1ace095a427f6bfa638e": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int8"
+        },
+        {
+          "name": "description",
+          "ordinal": 1,
+          "type_info": "Text"
+        },
+        {
+          "name": "done",
+          "ordinal": 2,
+          "type_info": "Bool"
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": []
+      }
+    },
+    "query": "\nSELECT id, description, done\nFROM todos\nORDER BY id\n        "
+  },
+  "96718c657043335da552ab71ea9a64fb764c5bf853d244eac9534e6e5ce18446": {
+    "describe": {
+      "columns": [],
+      "nullable": [],
+      "parameters": {
+        "Left": [
+          "Int8"
+        ]
+      }
+    },
+    "query": "\nUPDATE todos\nSET done = TRUE\nWHERE id = $1\n        "
+  },
+  "e72f45a8ece5c13c64c19f271fec73f90eeafc56f77750b13555eb244d28229b": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": "Int8"
+        }
+      ],
+      "nullable": [
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "\nINSERT INTO todos ( description )\nVALUES ( $1 )\nRETURNING id\n        "
+  }
+}
